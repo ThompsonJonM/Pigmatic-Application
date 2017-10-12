@@ -17,7 +17,8 @@ export default class ViewUsers extends React.Component {
 
         .then(response => {
             console.log(response.data);
-            // this.setState({ users: response.userData });
+            console.log(this.state.users);
+            this.setState({ users: response.data });
         })
 
         .catch(function(error) {
@@ -26,7 +27,7 @@ export default class ViewUsers extends React.Component {
     }
 
     tabRow() {
-        if (this.state.user instanceof Array) {
+        if (this.state.users instanceof Array) {
             return this.state.users.map(function(object, i) {
                 return <TableRow obj={ object } key={ i } />;
             })

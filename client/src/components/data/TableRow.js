@@ -9,8 +9,13 @@ export default class TableRow extends React.Component {
                 </ td>
 
                 <td>
-                    { this.props.obj.user }
+                    { this.props.obj.username }
                 </ td>
+
+                <td>
+                    { this.props.obj.password }
+                </ td>
+                
                 <td>
                     <button className='btn btn-primary'> Edit </ button>
                 </ td>
