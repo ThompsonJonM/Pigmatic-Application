@@ -1,21 +1,17 @@
 import React from 'react';
 
-export default class TableRow extends React.Component {
+export default class CollectionTableRow extends React.Component {
     render() {
         return (
             <tr>
                 <td>
-                    { this.props.obj._id }
+                    { this.props.obj.id }
                 </ td>
 
                 <td>
-                    { this.props.obj.username }
+                    { this.props.obj.name }
                 </ td>
 
-                <td>
-                    { this.props.obj.password }
-                </ td>
-                
                 <td>
                     <button className='btn btn-primary'> Edit </ button>
                 </ td>

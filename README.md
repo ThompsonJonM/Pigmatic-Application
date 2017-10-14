@@ -1,42 +1,23 @@
-# Create React Express App
+# Pigmatic
 
-## About This Boilerplate
+# What is Pigmatic?
+- Pigmatic is a simplified museum collections database system which takes user input for accessioned and deaccessioned items and places the input into online registries.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+# How did Pigmatic Start?
+- Pigmatic is being created in response to real-life experiences with rudimentary collections database systems. 
+- The goal of Pigmatic is to provide small non-profit institutions with the ability to store and access their collections data in a more sophisticated manner than an Excel sheet.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+# Why use Pigmatic?
+- Affordability
+    + Pigmatic is being built with the goal of providing non-profit organiztions with a sophisticated collections management system.
+    + Acid-free registries and pigma pens can end up costing non-profit organizations thousands of dollars per year.
+- Simplicity
+    + Pigmatic offers a fast and efficient method for adding, modifying, and removing a collection's accession and deaccession information.
+- Accessibility
+    + Pigmatic uses a cloud-based database to store collections information. This allows the information to be accessed anywhere!
 
-## Starting the app locally
+# Setup
+- Work in progress.
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+# How to use Pigmatic
+- Work in progress.

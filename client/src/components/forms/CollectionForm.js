@@ -1,17 +1,13 @@
 import React from 'react';
 import Helper from '../utilities/Helper';
 
-export default class UserForm extends React.Component {
-
+export default class CollectionForm extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-
-            username: '',
-            password: ''
-
-        };
+            collectionName: ''
+        }
 
         this.addHelper = new Helper();
 
@@ -28,15 +24,13 @@ export default class UserForm extends React.Component {
     }
 
     handleSubmit(event) {
-        // alert(this.state.username + this.state.password);
         event.preventDefault();
 
-        let userData = {
-            username: this.state.username,
-            password: this.state.password
+        let collectionData = {
+            collectionName: this.state.collectionName
         }
 
-        this.addHelper.sendUserData(userData);
+        this.addHelper.sendCollectionData(collectionData);
         this.props.history.push('/');
     }
 
@@ -45,13 +39,8 @@ export default class UserForm extends React.Component {
             <div className='container'>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Username:
-                        <input type='text' name='username' onChange={this.handleChange} className='form-control'/>
-                    </ label>
-
-                    <label>
-                        Password:
-                        <input type='text' name='password' onChange={this.handleChange} className='form-control'/>
+                        Collection Name:
+                        <input type='text' name='collectionName' onChange={this.handleChange} className='form-control'/>
                     </ label>
 
                     <br />
@@ -59,6 +48,6 @@ export default class UserForm extends React.Component {
                     <input type='submit' value='submit' className='btn btn-primary' />
                 </ form>
             </ div>
-        );
+        )
     }
 }

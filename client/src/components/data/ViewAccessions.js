@@ -1,24 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import Helper from '../utilities/Helper';
-import UserTableRow from './UserTableRow';
+import AccessionTableRow from './AccessionTableRow';
 
-export default class ViewUsers extends React.Component {
+export default class ViewAccessions extends React.Component {
     
     constructor(props) {
         super(props);
 
-        this.state = { value: '', users: '' };
+        this.state = { value: '', accessions: '' };
         this.addHelper = new Helper();
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/users')
+        axios.get('http://localhost:3000/accessions')
 
         .then(response => {
             console.log(response.data);
             console.log(this.state.users);
-            this.setState({ users: response.data });
+            this.setState({ accessions: response.data });
         })
 
         .catch(function(error) {
@@ -27,9 +27,9 @@ export default class ViewUsers extends React.Component {
     }
 
     tabRow() {
-        if (this.state.users instanceof Array) {
-            return this.state.users.map(function(object, i) {
-                return <UserTableRow obj={ object } key={ i } />;
+        if (this.state.accessions instanceof Array) {
+            return this.state.accessions.map(function(object, i) {
+                return <AccessionTableRow obj={ object } key={ i } />;
             })
         }
     }
@@ -41,7 +41,7 @@ export default class ViewUsers extends React.Component {
                     <thead>
                         <tr>
                             <td> No. </ td>
-                            <td> User </ td>
+                            <td> Accession </ td>
                         </ tr>
                     </ thead>
 
