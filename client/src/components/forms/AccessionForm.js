@@ -96,7 +96,7 @@ export default class AccessionForm extends React.Component {
                         </ div>
                     </ form>
                     
-                    <button type='submit' id='form-submit' className='col-8 ml-auto mr-auto btn btn-primary btn-lg' onClick={ this.handleSubmit }> Submit </ button>
+                    <button type='submit' id='form-submit' className='col-8 ml-auto mr-auto btn btn-dark btn-lg' onClick={ this.handleSubmit }> Submit </ button>
                 </ div>
             </ div>
         );

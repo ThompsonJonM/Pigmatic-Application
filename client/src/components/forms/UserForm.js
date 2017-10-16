@@ -43,21 +43,23 @@ export default class UserForm extends React.Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
-                        <input type='text' name='username' onChange={this.handleChange} className='form-control'/>
-                    </ label>
+                <div className='row'>
+                    <form className='col-12 ml-auto mr-auto' onSubmit={this.handleSubmit}>
+                        <div className='row formRow'>
+                            <div className='col-6 ml-auto mr-auto form-group'>
+                                <label className='h5'> Username </ label>
+                                <input className='form-control' value={this.state.username} onChange={this.handleInputChange} type='text' name='username' placeholder='Enter a username.' required />
+                            </ div>
 
-                    <label>
-                        Password:
-                        <input type='text' name='password' onChange={this.handleChange} className='form-control'/>
-                    </ label>
+                            <div className='col-6 ml-auto mr-auto form-group'>
+                                <label className='h5'> Password </ label>
+                                <input className='form-control' value={this.state.password} onChange={this.handleInputChange} type='text' name='password' placeholder='Enter a password.' required />
+                            </ div>
 
-                    <br />
-
-                    <input type='submit' value='submit' className='btn btn-primary' />
-                </ form>
+                            <input type='submit' value='submit' className='col-2 ml-auto mr-auto btn btn-dark' />
+                        </ div>
+                    </ form>
+                </ div>
             </ div>
         );
     }

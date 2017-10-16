@@ -8,6 +8,10 @@ body {
     font-family: 'Josefin Slab', serif;
 }
 
+btn {
+    height: 50%;
+}
+
 li {
     color: #000000 !important;
     margin-top: 20px;
@@ -19,6 +23,10 @@ li:hover {
 }
 
 /* Individual IDs */
+
+#collectionText {
+    width: 100%;
+}
 
 #contentTray {
     margin-top: -250px;

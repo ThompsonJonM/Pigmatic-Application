@@ -37,16 +37,18 @@ export default class CollectionForm extends React.Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Collection Name:
-                        <input type='text' name='collectionName' onChange={this.handleChange} className='form-control'/>
-                    </ label>
+                <div className='row'>
+                    <form className='col-12 ml-auto mr-auto' onSubmit={this.handleSubmit}>
+                        <div className='row formRow'>
+                            <div className='col-8 ml-auto mr-auto form-group'>
+                                <label className='h5'> Collection Name </ label>
+                                <input className='form-control' value={this.state.collectionName} onChange={this.handleInputChange} type='text' name='collectionName' placeholder='Enter a collection name.' required />
+                            </ div>
+                        </ div>
+                    </ form>
 
-                    <br />
-
-                    <input type='submit' value='submit' className='btn btn-primary' />
-                </ form>
+                    <input type='submit' value='submit' className='col-2 ml-auto mr-auto btn btn-dark' />
+                </ div>
             </ div>
         )
     }
