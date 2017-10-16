@@ -1,0 +1,34 @@
+/* Global */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Slab', serif;
+}
+
+li {
+    color: #000000 !important;
+    margin-top: 20px;
+    z-index: 999;
+}
+
+li:hover {
+	color: #000000 !important;
+}
+
+/* Individual IDs */
+
+#contentTray {
+    margin-top: -250px;
+}
+
+#footer {
+    background-color: rgb(255, 255, 255);
+    margin: 100px 0 75px 0;
+}
+
+#headerImage {
+    width: 100%;
+}
