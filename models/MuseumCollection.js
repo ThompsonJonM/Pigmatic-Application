@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const MuseumCollectionSchema  = new Schema({
-    name: {
+    collectionName: {
         type: String
     },
 

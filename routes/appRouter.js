@@ -25,7 +25,7 @@ appRouter.post('/add-collection/post', function(req, res) {
         if (err) {
             res.send(err)
         } else {
-            User.findOneAndUpdate({}, { $push: { 'museumCollections': doc._id } }, function(error, doc) {
+            User.findOneAndUpdate({_id: '59e4d2e1b8059c19d4795cc8'}, { $push: { 'museumCollections': doc } }, function(error, doc) {
                 if (error) {
                     res.send(error);
                 } else {
@@ -42,13 +42,23 @@ appRouter.post('/add-accession/post', function(req, res) {
         if (err) {
             res.send(err);
         } else {
-            MuseumCollection.findByIdAndUpdate({}, { $push: { 'accessions': doc._id } }, function(error, doc) {
+            MuseumCollection.findByIdAndUpdate({ _id: '59e4d2e1b8059c19d4795cc8' }, { $push: { 'accessions': doc._id } }, function(error, doc) {
                 if (error) {
                     res.send(error);
                 } else {
                     res.send(doc);
                 }
             });
+        }
+    });
+});
+
+appRouter.get('/users/collections', function(req, res) {
+    User.find({_id: '59e4d2e1b8059c19d4795cc8'}).populate('museumCollections').exec(function(error, doc) {
+        if (error) {
+            res.send(error);
+        } else {
+            res.send(doc);
         }
     });
 });
@@ -62,42 +72,5 @@ appRouter.get('/', function(req, res) {
         }
     });
 });
-
-// appRouter.route('/edit/:id').get(function(req, res) {
-//     const id = req.params.id;
-
-//     User.findById(id, function(err, user) {
-//         res.json(user);
-//     });
-// });
-
-// appRouter.route('/update/:id').post(function(req, res) {
-//     User.findById(req.params.id, function(err, user) {
-//         if (!user) {
-//             return next(new Error('Could not load the user.'));
-//         } else {
-//             user.user = req.body.user;
-
-//             user.save().then(user => {
-//                 res.json('Update completed.');
-//             })
-
-//             .catch(err => {
-//                 res.status(400).send('Unable to update the user.');
-//             });
-//         }
-//     });
-// });
-
-// appRouter.route('/delete/:id').get(function(req, res) {
-//     User.findByIdAndRemove({ _id: req.params.id },
-//         function(err, user) {
-//             if (err) {
-//                 res.json(err);
-//             } else {
-//                 res.json('Successfully removed the user.');
-//             }
-//         });
-// });
 
 module.exports = appRouter;

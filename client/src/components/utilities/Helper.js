@@ -21,7 +21,7 @@ export default class Helper {
     sendCollectionData(collectionData) {
         axios.post('http://localhost:3000/users/add-collection/post',
         {
-            name: collectionData.collectionName
+            name: collectionData
         })
 
         .then(function(response) {

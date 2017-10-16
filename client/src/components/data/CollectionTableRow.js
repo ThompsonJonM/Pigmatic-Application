@@ -5,11 +5,11 @@ export default class CollectionTableRow extends React.Component {
         return (
             <tr>
                 <td>
-                    { this.props.obj.id }
+                    { this.props.obj.museumCollections._id }
                 </ td>
 
                 <td>
-                    { this.props.obj.name }
+                    { this.props.obj.museumCollections }
                 </ td>
 
                 <td>

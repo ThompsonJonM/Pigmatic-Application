@@ -13,12 +13,12 @@ export default class ViewCollections extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/users/collections')
+        axios.get('http://localhost:3000/users')
 
         .then(response => {
             console.log(response.data);
-            console.log(this.state.collections);
-            this.setState({ collections: response.data });
+            console.log(this.state.users);
+            this.setState({ users: response.data });
         })
 
         .catch(function(error) {
@@ -27,8 +27,8 @@ export default class ViewCollections extends React.Component {
     }
 
     tabRow() {
-        if (this.state.collections instanceof Array) {
-            return this.state.collections.map(function(object, i) {
+        if (this.state.users instanceof Array) {
+            return this.state.users.map(function(object, i) {
                 return <CollectionTableRow obj={ object } key={ i } />;
             })
         }

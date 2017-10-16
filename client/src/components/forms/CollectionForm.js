@@ -27,7 +27,7 @@ export default class CollectionForm extends React.Component {
         event.preventDefault();
 
         let collectionData = {
-            collectionName: this.state.collectionName
+            name: this.state.collectionName
         }
 
         this.addHelper.sendCollectionData(collectionData);
