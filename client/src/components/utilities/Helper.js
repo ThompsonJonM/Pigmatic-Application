@@ -19,7 +19,7 @@ export default class Helper {
     }
 
     sendCollectionData(collectionData) {
-        axios.post('https://localhost:3000/collections/add-collection/post',
+        axios.post('http://localhost:3000/users/add-collection/post',
         {
             name: collectionData.collectionName
         })
@@ -34,7 +34,7 @@ export default class Helper {
     }
 
     sendAccessionData(accessionData) {
-        axios.post('https://localhost:3000/accessions/add-accession/post',
+        axios.post('http://localhost:3000/users/add-accession/post',
         {
             acqNumber: accessionData.acqNumber,
             acqMethod: accessionData.acqMethod,

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Accession = new Schema({
+const AccessionSchema = new Schema({
     acqNumber: {
         type: Number,
         required: true,
@@ -55,9 +55,8 @@ const Accession = new Schema({
         type: String,
         required: true
     }
-
-}, {
-    collection: 'accessions'
 });
 
-module.exports = mongoose.model('Accession', Accession);
+const Accession = mongoose.model('Accession', AccessionSchema);
+
+module.exports = Accession;

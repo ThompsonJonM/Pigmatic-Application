@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const MuseumCollection  = new Schema({
+const MuseumCollectionSchema  = new Schema({
     name: {
         type: String
-    }
-}, {
-    collection: 'collections'
+    },
+
+    accessions: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Accession'
+    }]
 });
 
-module.exports = mongoose.model('MuseumCollection', MuseumCollection);
+const MuseumCollection = mongoose.model('MuseumCollection', MuseumCollectionSchema);
+
+module.exports = MuseumCollection;
