@@ -38,14 +38,14 @@ export default class ViewAccessions extends React.Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <div className='col-10 ml-auto mr-auto'>
+                    <div className='col-12 ml-auto mr-auto'>
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
                                     <td> Collection </ td>
-                                    <td> Accession Number </ td>
+                                    <td className='text-center'> Accession No. </ td>
                                     <td> Name </ td>
-                                    <td> Method </ td>
+                                    <td className='text-center'> Method </ td>
                                     <td> Provenance </ td>
                                     <td> Donor </ td>
                                     <td> Description </ td>

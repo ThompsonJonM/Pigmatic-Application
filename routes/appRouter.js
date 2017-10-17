@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const appRouter = express.Router();
 
-// const User = require('../models/User');
 const MuseumCollection = require('../models/MuseumCollection');
 const Accession = require('../models/Accession');
 
@@ -18,28 +17,6 @@ appRouter.post('/add-collection/post', (function(req, res) {
         res.status(400).send('Unable to save collection.');
     });
 }));
-
-// appRouter.post('/add-collection/post', function(req, res) {
-//     const museumCollection = new MuseumCollection(req.body);
-
-//     console.log(museumCollection);
-
-
-//     museumCollection.save(function(err, doc) {
-//         if (err) {
-//             res.send(err)
-//         } else {
-//             User.findByIdAndUpdate({_id: '59deca5f0d93f629f4efb444'}, { $push: { 'museumCollections': {'id':doc._id, 'collectionName': doc.collectionName, 'accessionID': doc.accessionID } } }, function(error, doc) {
-//                 if (error) {
-//                     res.send(error);
-//                 } else {
-//                     res.send(doc);
-//                     console.log(doc);
-//                 }
-//             });
-//         }
-//     });
-// });
 
 appRouter.post('/collections', function(req, res) {
     MuseumCollection.save(exampleCollection, function(error, doc) {

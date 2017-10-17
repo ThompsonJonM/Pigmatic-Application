@@ -42,9 +42,10 @@ export default class ViewCollections extends React.Component {
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
-                                    <td> No. </ td>
                                     <td> Collection Name </ td>
-                                    <td> Accession ID </ td>
+                                    <td className='text-center'> Accession ID </ td>
+                                    <td className='text-center'> Add Accession </ td>
+                                    <td className='text-center'> Delete Collection </ td>
                                 </ tr>
                             </ thead>
 

@@ -21,22 +21,18 @@ export default class CollectionTableRow extends React.Component {
         return (
             <tr>
                 <td>
-                    { this.props.obj._id }
-                </ td>
-
-                <td>
                     { this.props.obj.collectionName }
                 </ td>
 
-                <td>
+                <td className='text-center'>
                     { this.props.obj.accessionID }
                 </ td>
 
-                <td>
-                    <Link to={"/add-accession/"+this.props.obj._id} className="btn btn-primary">Add Accession</Link>
+                <td className='text-center'>
+                    <Link to={"/add-accession/"+this.props.obj._id} className="btn btn-dark">Add Item</Link>
                 </td>
 
-                <td>
+                <td className='text-center'>
                     <form onSubmit={this.handleSubmit}>
                         <input type='submit' value='Delete' className='btn btn-danger' />
                     </ form>

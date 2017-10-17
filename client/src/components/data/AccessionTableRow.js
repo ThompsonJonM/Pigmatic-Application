@@ -8,7 +8,7 @@ export default class AccessionTableRow extends React.Component {
                     { this.props.obj.accessions[0].acqCollection }
                 </ td>
 
-                <td>
+                <td className='text-center'>
                     { this.props.obj.accessions[0].acqNumber }
                 </ td>
 
@@ -16,7 +16,7 @@ export default class AccessionTableRow extends React.Component {
                     { this.props.obj.accessions[0].acqName }
                 </ td>
 
-                <td>
+                <td className='text-center'>
                     { this.props.obj.accessions[0].acqMethod }
                 </ td>
 

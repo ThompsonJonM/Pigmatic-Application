@@ -36,7 +36,7 @@ export default class CollectionForm extends React.Component {
         }
 
         this.addHelper.sendCollectionData(collectionData);
-        this.props.history.push('/view-collections');
+        this.props.history.push('/collection-submit');
     }
 
     render() {
