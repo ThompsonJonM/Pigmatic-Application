@@ -1,7 +1,7 @@
 import React from 'react';
 import Helper from '../utilities/Helper';
 
-export default class UserForm extends React.Component {
+export default class CollectionForm extends React.Component {
 
     constructor(props) {
         super(props);

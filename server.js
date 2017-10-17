@@ -20,30 +20,30 @@ db.once('open', function() {
   console.log('DB connect successful.');
 });
 
-let exampleCollection = new MuseumCollection({
-  "collectionName": "19th Century America",
-  "accessionID": 72,
-  "accessions": [{
-    "acqNumber": "2017.72.01",
-    "acqMethod": "Donation",
-    "acqName": "Chert",
-    "acqCollection": "19th Century American",
-    "acqProv": "Striking Stone",
-    "acqDonor": "Anonymous",
-    "acqDescribe": "A small flake of chert."
-  }]
-})
+// let exampleCollection = new MuseumCollection({
+//   "collectionName": "Medieval Europe",
+//   "accessionID": 90,
+//   "accessions": [{
+//     "acqNumber": "2017.90.01",
+//     "acqMethod": "Donation",
+//     "acqName": "Hammer",
+//     "acqCollection": "Medieval Europe",
+//     "acqProv": "Tool",
+//     "acqDonor": "Anoynmous",
+//     "acqDescribe": "A smithing hammer."
+//   }]
+// })
 
-exampleCollection.save(function(error, doc) {
-  // Log any errors
-  if (error) {
-    console.log(error);
-  }
-  // Or log the doc
-  else {
-    console.log(doc);
-  }
-});
+// exampleCollection.save(function(error, doc) {
+//   // Log any errors
+//   if (error) {
+//     console.log(error);
+//   }
+//   // Or log the doc
+//   else {
+//     console.log(doc);
+//   }
+// });
 
 const appRouter = require('./routes/appRouter');
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Helper from '../utilities/Helper';
 
-export default class UserTableRow extends React.Component {
+export default class CollectionTableRow extends React.Component {
 
     constructor(props) {
         super(props);

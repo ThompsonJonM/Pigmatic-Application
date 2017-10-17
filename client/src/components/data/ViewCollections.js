@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import Helper from '../utilities/Helper';
-import UserTableRow from './UserTableRow';
+import CollectionTableRow from './CollectionTableRow';
 
-export default class ViewUsers extends React.Component {
+export default class ViewCollections extends React.Component {
     
     constructor(props) {
         super(props);
@@ -29,7 +29,7 @@ export default class ViewUsers extends React.Component {
     tabRow() {
         if (this.state.collections instanceof Array) {
             return this.state.collections.map(function(object, i) {
-                return <UserTableRow obj={ object } key={ i } />;
+                return <CollectionTableRow obj={ object } key={ i } />;
             })
         }
     }

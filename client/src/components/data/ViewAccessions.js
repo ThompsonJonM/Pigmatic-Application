@@ -8,17 +8,17 @@ export default class ViewAccessions extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { value: '', accessions: '' };
+        this.state = { value: '', collections: '' };
         this.addHelper = new Helper();
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/users')
+        axios.get('http://localhost:3000/collections')
 
         .then(response => {
             console.log(response.data);
-            console.log(this.state.accessions);
-            this.setState({ users: response.data });
+            console.log(this.state.collections);
+            this.setState({ collections: response.data });
         })
 
         .catch(function(error) {
@@ -27,8 +27,8 @@ export default class ViewAccessions extends React.Component {
     }
 
     tabRow() {
-        if (this.state.users instanceof Array) {
-            return this.state.users.map(function(object, i) {
+        if (this.state.collections instanceof Array) {
+            return this.state.collections.map(function(object, i) {
                 return <AccessionTableRow obj={ object } key={ i } />;
             })
         }
@@ -42,9 +42,13 @@ export default class ViewAccessions extends React.Component {
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
-                                    <td> User ID </ td>
-                                    <td> Collection ID </ td>
-                                    <td> Accession </ td>
+                                    <td> Collection </ td>
+                                    <td> Accession Number </ td>
+                                    <td> Name </ td>
+                                    <td> Method </ td>
+                                    <td> Provenance </ td>
+                                    <td> Donor </ td>
+                                    <td> Description </ td>
                                 </ tr>
                                 
                             </ thead>
