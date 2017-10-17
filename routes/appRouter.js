@@ -47,11 +47,23 @@ appRouter.get('/add-accession/:id', function(req, res) {
 });
 
 appRouter.post('/update-accession/:id', function(req, res) {
+    let accession = new Accession(req.body);
+
     MuseumCollection.findById(req.params.id, function(err, collection) {
         if (!collection) {
             return next(new Error('Could not load doc'));
         } else {
             collection.accessions = [
+                {
+                    "acqNumber": req.body.acqNumber,
+                    "acqMethod": req.body.acqMethod,
+                    "acqName": req.body.acqName,
+                    "acqCollection": req.body.acqCollection,
+                    "acqProv": req.body.acqProv,
+                    "acqDonor": req.body.acqDonor,
+                    "acqDescribe": req.body.acqDescribe
+                },
+                
                 {
                     "acqNumber": req.body.acqNumber,
                     "acqMethod": req.body.acqMethod,
