@@ -28,7 +28,6 @@ export default class CollectionForm extends React.Component {
     }
 
     handleSubmit(event) {
-        // alert(this.state.username + this.state.password);
         event.preventDefault();
 
         let collectionData = {
@@ -37,7 +36,7 @@ export default class CollectionForm extends React.Component {
         }
 
         this.addHelper.sendCollectionData(collectionData);
-        this.props.history.push('/');
+        this.props.history.push('/view-collections');
     }
 
     render() {

@@ -24,15 +24,16 @@ export default class Navbar extends React.Component {
             <Router>
                 <div>
                     <ul className='col-2 mr-auto nav navbar-nav' id='navList'>
-                        <li id='linkText'><Link style={styles.base} to='/add-user'> Add Collection</Link></li>
-                        <li id='linkText'><Link style={styles.base} to='/add-accession'> Add Accession</Link></li>
-                        <li id='linkText'><Link style={styles.base} to='/view-users'> View Collections</Link></li>
+                        <li id='linkText'><Link style={styles.base} to='/add-collection'> Add Collection</Link></li>
+                        {/* <li id='linkText'><Link style={styles.base} to='/add-accession'> Add Accession</Link></li> */}
+                        <li id='linkText'><Link style={styles.base} to='/view-collections'> View Collections</Link></li>
                         <li id='linkText'><Link style={styles.base} to='/view-accessions'> View Accessions</Link></li>
                     </ ul>
                     <div className='col-12 ml-auto' id='contentTray'>
-                        <Route path='/add-user' component={ CollectionForm } />
-                        <Route path='/add-accession' component={ AccessionForm } />
-                        <Route path='/view-users' component={ ViewCollections } />
+                        <Route path='/add-collection' component={ CollectionForm } />
+                        <Route exact path='/add-accession' component={ AccessionForm } />
+                        <Route exact path='/add-accession/:id' component={ AccessionForm } />
+                        <Route path='/view-collections' component={ ViewCollections } />
                         <Route path='/view-accessions' component={ ViewAccessions } />
                     </ div>
                 </ div>

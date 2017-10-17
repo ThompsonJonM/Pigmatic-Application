@@ -18,8 +18,8 @@ export default class Helper {
         });
     }
 
-    sendAccessionData(accessionData) {
-        axios.post('http://localhost:3000/collections/accessions/add-accession/post',
+    sendAccessionData(accessionData, id) {
+        axios.post('http://localhost:3000/collections/update-accession/'+id,
         {
             acqNumber: accessionData.acqNumber,
             acqMethod: accessionData.acqMethod,
@@ -30,9 +30,7 @@ export default class Helper {
             acqDescribe: accessionData.acqDescribe
         })
 
-        .then(function(response) {
-            console.log(response);
-        })
+        .then(res => this.setState({ collections: res.accessionData }))
 
         .catch(function(error) {
             console.log(error);

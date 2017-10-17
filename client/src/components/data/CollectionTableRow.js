@@ -1,5 +1,6 @@
 import React from 'react';
 import Helper from '../utilities/Helper';
+import { Link } from 'react-router-dom';
 
 export default class CollectionTableRow extends React.Component {
 
@@ -30,6 +31,10 @@ export default class CollectionTableRow extends React.Component {
                 <td>
                     { this.props.obj.accessionID }
                 </ td>
+
+                <td>
+                    <Link to={"/add-accession/"+this.props.obj._id} className="btn btn-primary">Add Accession</Link>
+                </td>
 
                 <td>
                     <form onSubmit={this.handleSubmit}>

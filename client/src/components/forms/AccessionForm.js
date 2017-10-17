@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 import Helper from '../utilities/Helper';
 
 export default class AccessionForm extends React.Component {
@@ -19,6 +20,17 @@ export default class AccessionForm extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount(){
+        axios.get('http://localhost:3000/collections/add-accession/'+this.props.match.params.id)
+          .then(response => {
+            console.log(response);
+          })
+    
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
 
     handleInputChange(event) {
         const target = event.target;
@@ -45,8 +57,8 @@ export default class AccessionForm extends React.Component {
 
         console.log(accessionData);
 
-        this.addHelper.sendAccessionData(accessionData);
-        this.props.history.push('/');
+        this.addHelper.sendAccessionData(accessionData, this.props.match.params.id);
+        this.props.history.push('/view-collections');
     }
 
     render() {
