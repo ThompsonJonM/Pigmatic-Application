@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import Helper from '../utilities/Helper';
-import UserTableRow from './UserTableRow';
+import CollectionTableRow from './CollectionTableRow';
 
-export default class ViewUsers extends React.Component {
+import collections from '../../collections.json';
+
+export default class ViewCollections extends React.Component {
     
     constructor(props) {
         super(props);
@@ -18,7 +20,7 @@ export default class ViewUsers extends React.Component {
         .then(response => {
             console.log(response.data);
             console.log(this.state.collections);
-            this.setState({ collections: response.data });
+            this.setState({ users: response.data });
         })
 
         .catch(function(error) {
@@ -29,7 +31,7 @@ export default class ViewUsers extends React.Component {
     tabRow() {
         if (this.state.collections instanceof Array) {
             return this.state.collections.map(function(object, i) {
-                return <UserTableRow obj={ object } key={ i } />;
+                return <CollectionTableRow obj={ object } key={ i } />;
             })
         }
     }
@@ -42,9 +44,7 @@ export default class ViewUsers extends React.Component {
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
-                                    <td> No. </ td>
-                                    <td> Collection Name </ td>
-                                    <td> Accession ID </ td>
+                                    <td> Collection </ td>
                                 </ tr>
                             </ thead>
 

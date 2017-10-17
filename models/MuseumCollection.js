@@ -6,8 +6,12 @@ const MuseumCollectionSchema  = new Schema({
         type: String
     },
 
+    accessionID: {
+        type: String
+    },
+
     accessions: [{
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.Object,
         ref: 'Accession'
     }]
 });

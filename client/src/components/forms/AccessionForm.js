@@ -43,6 +43,8 @@ export default class AccessionForm extends React.Component {
             acqDescribe: this.state.acqDescribe
         }
 
+        console.log(accessionData);
+
         this.addHelper.sendAccessionData(accessionData);
         this.props.history.push('/');
     }
@@ -51,7 +53,7 @@ export default class AccessionForm extends React.Component {
         return (
             <div className='container acqContainer'>
                 <div className='row'>
-                    <form className='col-10 ml-auto mr-auto' id='acqForm'>
+                    <form className='col-10 ml-auto mr-auto' id='acqForm' onSubmit={ this.handleSubmit }>
                         <div className='row formRow'>
                             <div className='col-6 form-group'>
                                 <label className='h5'> Acquisition Number </ label>
@@ -94,9 +96,9 @@ export default class AccessionForm extends React.Component {
                                 <textarea className='form-control' value={this.state.acqDescribe} onChange={this.handleInputChange} type='text' name='acqDescribe' rows='5' placeholder='Enter an object description.' required />
                             </ div>
                         </ div>
+
+                        <input type='submit' value='Submit' className='col-12 ml-auto mr-auto btn btn-dark btn-lg' />
                     </ form>
-                    
-                    <button type='submit' id='form-submit' className='col-8 ml-auto mr-auto btn btn-dark btn-lg' onClick={ this.handleSubmit }> Submit </ button>
                 </ div>
             </ div>
         );

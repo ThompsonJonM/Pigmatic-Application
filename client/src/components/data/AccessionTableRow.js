@@ -5,39 +5,17 @@ export default class AccessionTableRow extends React.Component {
         return (
             <tr>
                 <td>
-                    { this.props.obj.acqNumber }
+                    { this.props.obj._id }
                 </ td>
 
                 <td>
-                    { this.props.obj.acqMethod }
+                    { this.props.obj.museumCollections[0].collectionName }
                 </ td>
 
                 <td>
-                    { this.props.obj.acqName }
+                    { this.props.obj.museumCollections[0] }
                 </ td>
 
-                <td>
-                    { this.props.obj.acqCollection }
-                </ td>
-
-                <td>
-                    { this.props.obj.acqProv }
-                </ td>
-
-                <td>
-                    { this.props.obj.acqDonor }
-                </ td>
-
-                <td>
-                    { this.props.obj.acqDescribe }
-                </ td>
-
-                <td>
-                    <button className='btn btn-primary'> Edit </ button>
-                </ td>
-                <td>
-                    <button className='btn btn-danger'> Delete </ button>
-                </ td>
             </ tr>
         );
     }

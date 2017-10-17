@@ -1,6 +1,21 @@
 import React from 'react';
+import Helper from '../utilities/Helper';
 
 export default class UserTableRow extends React.Component {
+
+    constructor(props) {
+        super(props);
+    
+        this.addHelper = new Helper();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleSubmit(event) {
+    event.preventDefault();
+    this.addHelper.deleteData(this.props.obj._id);
+
+    }
+
     render() {
         return (
             <tr>
@@ -9,19 +24,18 @@ export default class UserTableRow extends React.Component {
                 </ td>
 
                 <td>
-                    { this.props.obj.username }
+                    { this.props.obj.collectionName }
                 </ td>
 
                 <td>
-                    { this.props.obj.password }
+                    { this.props.obj.accessionID }
                 </ td>
-                
+
                 <td>
-                    <button className='btn btn-primary'> Edit </ button>
-                </ td>
-                <td>
-                    <button className='btn btn-danger'> Delete </ button>
-                </ td>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type='submit' value='Delete' className='btn btn-danger' />
+                    </ form>
+                </td>
             </ tr>
         );
     }

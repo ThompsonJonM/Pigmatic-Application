@@ -6,7 +6,8 @@ export default class CollectionForm extends React.Component {
         super(props);
 
         this.state = {
-            collectionName: ''
+            collectionName: '',
+            accessionID: ''
         }
 
         this.addHelper = new Helper();
@@ -27,8 +28,11 @@ export default class CollectionForm extends React.Component {
         event.preventDefault();
 
         let collectionData = {
-            name: this.state.collectionName
+            collectionName: this.state.collectionName,
+            accessionID: this.state.accessionID
         }
+
+        console.log(collectionData);
 
         this.addHelper.sendCollectionData(collectionData);
         this.props.history.push('/');
@@ -38,16 +42,21 @@ export default class CollectionForm extends React.Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <form className='col-12 ml-auto mr-auto' onSubmit={this.handleSubmit}>
+                    <form className='col-10 ml-auto mr-auto' onSubmit={this.handleSubmit}>
                         <div className='row formRow'>
-                            <div className='col-8 ml-auto mr-auto form-group'>
+                            <div className='col-12 ml-auto mr-auto form-group'>
                                 <label className='h5'> Collection Name </ label>
-                                <input className='form-control' value={this.state.collectionName} onChange={this.handleInputChange} type='text' name='collectionName' placeholder='Enter a collection name.' required />
+                                <input className='form-control' value={this.state.collectionName} onChange={this.handleChange} type='text' name='collectionName' placeholder='Enter a collection name.' required />
                             </ div>
+
+                            <div className='col-12 ml-auto mr-auto form-group'>
+                                <label className='h5'> accessionID </ label>
+                                <input className='form-control' value={this.state.accessionID} onChange={this.handleChange} type='text' name='accessionID' placeholder='Enter a accessionID.' required />
+                            </ div>
+
+                            <input type='submit' value='submit' className='col-2 ml-auto mr-auto btn btn-dark' />
                         </ div>
                     </ form>
-
-                    <input type='submit' value='submit' className='col-2 ml-auto mr-auto btn btn-dark' />
                 </ div>
             </ div>
         )

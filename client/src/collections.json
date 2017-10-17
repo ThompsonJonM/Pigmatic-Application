@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "collectionName": "Native American",
+        "accessionID": 22,
+        "accessions": [
+            {
+                "acqNumber": "2017.22.01",
+                "acqMethod": "Donation",
+                "acqName": "Chert",
+                "acqCollection": "Native American",
+                "acqProv": "Striking Stone",
+                "acqDonor": "Anonymous",
+                "acqDescribe": "A small flake of chert."
+            }
+        ]
+    },
+
+    {
+        "id": 2,
+        "collectionName": "Tang Dynasty China",
+        "accessionID": 45,
+        "accessions": [
+            {
+                "acqNumber": "2017.45.01",
+                "acqMethod": "Donation",
+                "acqName": "Vase",
+                "acqCollection": "Tang Dynasty China",
+                "acqProv": "Tri-Glazed Vase",
+                "acqDonor": "Anonymous",
+                "acqDescribe": "A medium-size vase which features tri-color glaze and two horses."
+            }
+        ]
+    },
+
+    {
+        "id": 3,
+        "collectionName": "Medieval Europe",
+        "accessionID": 36,
+        "accessions": [
+            {
+                "acqNumber": "2017.36.01",
+                "acqMethod": "Purchase",
+                "acqName": "Hammer",
+                "acqCollection": "Medieval Europe",
+                "acqProv": "Tool",
+                "acqDonor": "Anonymous",
+                "acqDescribe": "A steel hammer with multiple dents on the striking end."
+            }
+        ]
+    }
+]

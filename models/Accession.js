@@ -4,56 +4,48 @@ const Schema = mongoose.Schema;
 
 const AccessionSchema = new Schema({
     acqNumber: {
-        type: Number,
-        required: true,
+        formType: String,
+        // required: true,
 
         /* Regex shall match 2010-2029.00-99.000-999a-z 
         with a max length of 12 characters*/
-        match: [/([2][0][1-2][0-9])[.]([0-9]{2})[.]([0-9][0-9]?[0-9]?[a-z]?)/, 
+        // match: [/([2][0][1-2][0-9])[.]([0-9]{2})[.]([0-9][0-9]?[0-9]?[a-z]?)/, 
         
         // Regex error message:
-        "Please enter a valid accession number (ex. 2017.22.02a)"],
+        //"Please enter a valid accession number (ex. 2017.22.02a)"],
 
-        validate: [
-            function(input) {
-                return input.length <=12;
-            },
+        // validate: [
+        //     function(input) {
+        //         return input.length <=12;
+        //     },
 
-            // Validation error message:
-            'Accession numbers should be less than or equal to twelve digits in length.'
-        ]
+        //     // Validation error message:
+        //     //'Accession numbers should be less than or equal to twelve digits in length.'
+        // ]
     },
 
     acqMethod: {
-        type: String,
-        trim: true,
-        required: true
+        formType: String,
     },
 
     acqName: {
-        type: String,
-        trim: true,
-        required: true
+        formType: String,
     },
 
     acqCollection: {
-        type: String,
-        required: true
+        formType: String,
     },
 
     acqProv: {
-        type: String,
-        required: true
+        formType: String,
     },
 
     acqDonor: {
-        type: String,
-        required: true
+        formType: String,
     },
 
     acqDescribe: {
-        type: String,
-        required: true
+        formType: String,
     }
 });
 

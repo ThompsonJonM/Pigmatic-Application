@@ -8,8 +8,8 @@ export default class UserForm extends React.Component {
 
         this.state = {
 
-            username: '',
-            password: ''
+            collectionName: '',
+            accessionID: ''
 
         };
 
@@ -31,12 +31,12 @@ export default class UserForm extends React.Component {
         // alert(this.state.username + this.state.password);
         event.preventDefault();
 
-        let userData = {
-            username: this.state.username,
-            password: this.state.password
+        let collectionData = {
+            collectionName: this.state.collectionName,
+            accessionID: this.state.accessionID
         }
 
-        this.addHelper.sendUserData(userData);
+        this.addHelper.sendCollectionData(collectionData);
         this.props.history.push('/');
     }
 
@@ -44,16 +44,16 @@ export default class UserForm extends React.Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <form className='col-12 ml-auto mr-auto' onSubmit={this.handleSubmit}>
+                    <form className='col-10 ml-auto mr-auto' onSubmit={this.handleSubmit}>
                         <div className='row formRow'>
                             <div className='col-6 ml-auto mr-auto form-group'>
-                                <label className='h5'> Username </ label>
-                                <input className='form-control' value={this.state.username} onChange={this.handleInputChange} type='text' name='username' placeholder='Enter a username.' required />
+                                <label className='h5'> Collection Name </ label>
+                                <input className='form-control' value={this.state.collectionName} onChange={this.handleChange} type='text' name='collectionName' placeholder='Enter a collection name.' required />
                             </ div>
 
                             <div className='col-6 ml-auto mr-auto form-group'>
-                                <label className='h5'> Password </ label>
-                                <input className='form-control' value={this.state.password} onChange={this.handleInputChange} type='text' name='password' placeholder='Enter a password.' required />
+                                <label className='h5'> Accession ID Number </ label>
+                                <input className='form-control' value={this.state.accessionID} onChange={this.handleChange} type='text' name='accessionID' placeholder='Enter an accession ID.' required />
                             </ div>
 
                             <input type='submit' value='submit' className='col-2 ml-auto mr-auto btn btn-dark' />

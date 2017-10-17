@@ -1,21 +1,21 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
-    username: {
-        type: String
-    },
+// const UserSchema = new Schema({
+//     username: {
+//         type: String
+//     },
 
-    password: {
-        type: String
-    },
+//     password: {
+//         type: String
+//     },
 
-    museumCollections: [{
-        type: Schema.Types.ObjectId,
-        ref: 'MuseumCollection'
-    }]
-});
+//     // museumCollections: [{
+//     //     type: Schema.Types.Object,
+//     //     ref: 'MuseumCollection'
+//     // }]
+// });
 
-const User = mongoose.model('User', UserSchema);
+// const User = mongoose.model('User', UserSchema);
 
-module.exports = User;
+// module.exports = User;

@@ -13,12 +13,12 @@ export default class ViewAccessions extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/accessions')
+        axios.get('http://localhost:3000/users')
 
         .then(response => {
             console.log(response.data);
-            console.log(this.state.users);
-            this.setState({ accessions: response.data });
+            console.log(this.state.accessions);
+            this.setState({ users: response.data });
         })
 
         .catch(function(error) {
@@ -27,8 +27,8 @@ export default class ViewAccessions extends React.Component {
     }
 
     tabRow() {
-        if (this.state.accessions instanceof Array) {
-            return this.state.accessions.map(function(object, i) {
+        if (this.state.users instanceof Array) {
+            return this.state.users.map(function(object, i) {
                 return <AccessionTableRow obj={ object } key={ i } />;
             })
         }
@@ -37,18 +37,24 @@ export default class ViewAccessions extends React.Component {
     render() {
         return (
             <div className='container'>
-                <table className='table table-striped'>
-                    <thead>
-                        <tr>
-                            <td> No. </ td>
-                            <td> Accession </ td>
-                        </ tr>
-                    </ thead>
+                <div className='row'>
+                    <div className='col-10 ml-auto mr-auto'>
+                        <table className='table table-striped'>
+                            <thead>
+                                <tr>
+                                    <td> User ID </ td>
+                                    <td> Collection ID </ td>
+                                    <td> Accession </ td>
+                                </ tr>
+                                
+                            </ thead>
 
-                    <tbody>
-                        { this.tabRow() }
-                    </ tbody>
-                </ table>
+                            <tbody>
+                                { this.tabRow() }
+                            </ tbody>
+                        </ table>
+                    </ div>
+                </ div>
             </ div>
         );
     }
