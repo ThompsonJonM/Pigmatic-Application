@@ -70,6 +70,14 @@ appRouter.post('/update-accession/:id', function(req, res) {
     });
 });
 
+appRouter.get('/view-accessions/:id', function(req, res) {
+    const id = req.params.id;
+
+    MuseumCollection.findById(id, function(err, MuseumCollection) {
+        res.json(MuseumCollection);
+    });
+});
+
 appRouter.route('/delete/:id').get(function(req, res) {
     MuseumCollection.findByIdAndRemove({ _id: req.params.id },
         function(err, user) {

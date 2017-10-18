@@ -27,7 +27,6 @@ export default class Navbar extends React.Component {
                         <li><Link style={styles.base} to='/'> Home </ Link></ li>
                         <li><Link style={styles.base} to='/add-collection'> Add Collection</Link></li>
                         <li><Link style={styles.base} to='/view-collections'> View Collections</Link></li>
-                        <li><Link style={styles.base} to='/view-accessions'> View Accession History</Link></li>
                     </ ul>
                     <div className='col-10 ml-auto mr-auto' id='contentTray'>
                         <Route exact path='/' component={ Main } />
@@ -35,7 +34,7 @@ export default class Navbar extends React.Component {
                         <Route exact path='/add-accession' component={ AccessionForm } />
                         <Route exact path='/add-accession/:id' component={ AccessionForm } />
                         <Route path='/view-collections' component={ ViewCollections } />
-                        <Route path='/view-accessions' component={ ViewAccessions } />
+                        <Route exact path='/view-accessions/:id' component={ ViewAccessions } />
                         <Route path='/collection-submit' component={ CollectionSubmit } />
                     </ div>
                 </ div>

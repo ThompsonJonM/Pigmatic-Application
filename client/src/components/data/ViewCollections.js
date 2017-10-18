@@ -8,7 +8,10 @@ export default class ViewCollections extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { value: '', collections: '' };
+        this.state = { 
+            collections: '' 
+        };
+        
         this.addHelper = new Helper();
     }
 
@@ -44,7 +47,8 @@ export default class ViewCollections extends React.Component {
                                 <tr>
                                     <td> Collection Name </ td>
                                     <td className='text-center'> Accession ID </ td>
-                                    <td className='text-center'> Add Accession </ td>
+                                    <td className='text-center'> Add Items </ td>
+                                    <td className='text-center'> View Collection </ td>
                                     <td className='text-center'> Delete Collection </ td>
                                 </ tr>
                             </ thead>

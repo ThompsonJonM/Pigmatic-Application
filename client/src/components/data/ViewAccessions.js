@@ -8,27 +8,28 @@ export default class ViewAccessions extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { value: '', collections: '' };
+        this.state = { 
+            accessions: '' 
+        };
+
         this.addHelper = new Helper();
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:3000/collections')
-
-        .then(response => {
-            console.log(response.data);
-            console.log(this.state.collections);
-            this.setState({ collections: response.data });
-        })
-
-        .catch(function(error) {
+    componentDidMount(){
+        axios.get('http://localhost:3000/collections/view-accessions/'+this.props.match.params.id)
+          .then(response => {
+            console.log(response.data.accessions);
+            this.setState({ accessions: response.data.accessions })
+          })
+    
+          .catch(function (error) {
             console.log(error);
-        })
-    }
+          })
+      }
 
     tabRow() {
-        if (this.state.collections instanceof Array) {
-            return this.state.collections.map(function(object, i) {
+        if (this.state.accessions instanceof Array) {
+            return this.state.accessions.map(function(object, i) {
                 return <AccessionTableRow obj={ object } key={ i } />;
             })
         }
