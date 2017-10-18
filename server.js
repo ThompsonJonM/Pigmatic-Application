@@ -20,31 +20,6 @@ db.once('open', function() {
   console.log('DB connect successful.');
 });
 
-// let exampleCollection = new MuseumCollection({
-//   "collectionName": "Medieval Europe",
-//   "accessionID": 90,
-//   "accessions": [{
-//     "acqNumber": "2017.90.01",
-//     "acqMethod": "Donation",
-//     "acqName": "Hammer",
-//     "acqCollection": "Medieval Europe",
-//     "acqProv": "Tool",
-//     "acqDonor": "Anoynmous",
-//     "acqDescribe": "A smithing hammer."
-//   }]
-// })
-
-// exampleCollection.save(function(error, doc) {
-//   // Log any errors
-//   if (error) {
-//     console.log(error);
-//   }
-//   // Or log the doc
-//   else {
-//     console.log(doc);
-//   }
-// });
-
 const appRouter = require('./routes/appRouter');
 
 const PORT = process.env.PORT || 3001;

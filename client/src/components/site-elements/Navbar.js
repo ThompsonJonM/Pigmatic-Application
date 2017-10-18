@@ -27,7 +27,7 @@ export default class Navbar extends React.Component {
                         <li><Link style={styles.base} to='/'> Home </ Link></ li>
                         <li><Link style={styles.base} to='/add-collection'> Add Collection</Link></li>
                         <li><Link style={styles.base} to='/view-collections'> View Collections</Link></li>
-                        <li><Link style={styles.base} to='/view-accessions'> View Accessions</Link></li>
+                        <li><Link style={styles.base} to='/view-accessions'> View Accession History</Link></li>
                     </ ul>
                     <div className='col-10 ml-auto mr-auto' id='contentTray'>
                         <Route exact path='/' component={ Main } />

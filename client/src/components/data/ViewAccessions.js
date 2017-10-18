@@ -42,10 +42,10 @@ export default class ViewAccessions extends React.Component {
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
-                                    <td> Collection </ td>
                                     <td className='text-center'> Accession No. </ td>
-                                    <td> Name </ td>
                                     <td className='text-center'> Method </ td>
+                                    <td> Name </ td>
+                                    <td> Collection </ td>
                                     <td> Provenance </ td>
                                     <td> Donor </ td>
                                     <td> Description </ td>

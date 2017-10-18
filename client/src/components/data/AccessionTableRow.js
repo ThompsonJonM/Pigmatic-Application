@@ -19,20 +19,20 @@ export default class AccessionTableRow extends React.Component {
     render() {
         return (
             <tr>
-                <td>
-                    { this.props.obj.accessions[0].acqCollection }
+                <td className='text-center'>
+                    { this.props.obj.accessions[0].acqNumber }
                 </ td>
 
                 <td className='text-center'>
-                    { this.props.obj.accessions[0].acqNumber }
+                    { this.props.obj.accessions[0].acqMethod }
                 </ td>
 
                 <td>
                     { this.props.obj.accessions[0].acqName }
                 </ td>
 
-                <td className='text-center'>
-                    { this.props.obj.accessions[0].acqMethod }
+                <td>
+                    { this.props.obj.accessions[0].acqCollection }
                 </ td>
 
                 <td>
