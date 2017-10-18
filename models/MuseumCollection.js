@@ -2,12 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const MuseumCollectionSchema  = new Schema({
+    _id: {
+        formType: String
+    },
+
     collectionName: {
-        type: String
+        formType: String
     },
 
     accessionID: {
-        type: String
+        formType: String
     },
 
     accessions: [{

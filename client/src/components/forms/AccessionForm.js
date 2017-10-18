@@ -22,7 +22,7 @@ export default class AccessionForm extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:3000/collections/add-accession/'+this.props.match.params.id)
+        axios.get('http://localhost:3000/users/add-accession/'+this.props.match.params.id)
           .then(response => {
             console.log(response);
           })

@@ -1,27 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 import Helper from '../utilities/Helper';
-import CollectionTableRow from './CollectionTableRow';
+import UserTableRow from './UserTableRow';
 
-export default class ViewCollections extends React.Component {
+export default class ViewUsers extends React.Component {
     
     constructor(props) {
         super(props);
 
         this.state = { 
-            collections: '' 
+            users: '' 
         };
         
         this.addHelper = new Helper();
     }
 
     componentDidMount() {
-        axios.get('/users/view-collections/'+this.props.match.params.id)
+        axios.get('/users')
 
         .then(response => {
-            console.log(response.data.collections);
-            console.log(this.state.collections);
-            this.setState({ collections: response.data.collections });
+            console.log(response.data);
+            console.log(this.state.users);
+            this.setState({ users: response.data });
         })
 
         .catch(function(error) {
@@ -30,9 +30,9 @@ export default class ViewCollections extends React.Component {
     }
 
     tabRow() {
-        if (this.state.collections instanceof Array) {
-            return this.state.collections.map(function(object, i) {
-                return <CollectionTableRow obj={ object } key={ i } />;
+        if (this.state.users instanceof Array) {
+            return this.state.users.map(function(object, i) {
+                return <UserTableRow obj={ object } key={ i } />;
             })
         }
     }
@@ -45,11 +45,9 @@ export default class ViewCollections extends React.Component {
                         <table className='table table-striped'>
                             <thead>
                                 <tr>
-                                    <td> Collection Name </ td>
-                                    <td className='text-center'> Accession ID </ td>
-                                    <td className='text-center'> Add Items </ td>
-                                    <td className='text-center'> View Items </ td>
-                                    <td className='text-center'> Delete Collection </ td>
+                                    <td> Institution Name </ td>
+                                    <td className='text-center'> Add Collection </ td>
+                                    <td className='text-center'> View Collection </ td>
                                 </ tr>
                             </ thead>
 

@@ -29,11 +29,11 @@ export default class CollectionTableRow extends React.Component {
                 </ td>
 
                 <td className='text-center'>
-                    <Link to={"/add-accession/"+this.props.obj._id} className="btn btn-dark">Add</Link>
+                    <Link to={"/collections/add-accession/"+this.props.obj.accessionID} className="btn btn-dark">Add</Link>
                 </td>
 
                 <td className='text-center'>
-                    <Link to={"/view-accessions/"+this.props.obj._id} className="btn btn-dark">View</Link>
+                    <Link to={"/users/collections/view-accessions/"+this.props.obj.accessionID} className="btn btn-dark">View</Link>
                 </td>
 
                 <td className='text-center'>

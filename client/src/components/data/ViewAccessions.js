@@ -16,10 +16,10 @@ export default class ViewAccessions extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('/collections/view-accessions/'+this.props.match.params.id)
+        axios.get('/users/collections/view-accessions/'+this.props.match.params.collectionName)
           .then(response => {
-            console.log(response.data.accessions);
-            this.setState({ accessions: response.data.accessions })
+            console.log(response.data);
+            this.setState({ accessions: response.data.collections.accessions })
           })
     
           .catch(function (error) {

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const AccessionSchema = new Schema({
     acqNumber: {
-        formType: String,
+        type: String,
         // required: true,
 
         /* Regex shall match 2010-2029.00-99.000-999a-z 
@@ -25,27 +25,27 @@ const AccessionSchema = new Schema({
     },
 
     acqMethod: {
-        formType: String,
+        type: String,
     },
 
     acqName: {
-        formType: String,
+        type: String,
     },
 
     acqCollection: {
-        formType: String,
+        type: String,
     },
 
     acqProv: {
-        formType: String,
+        type: String,
     },
 
     acqDonor: {
-        formType: String,
+        type: String,
     },
 
     acqDescribe: {
-        formType: String,
+        type: String,
     }
 });
 

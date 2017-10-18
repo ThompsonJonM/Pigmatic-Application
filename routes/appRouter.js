@@ -2,34 +2,25 @@ const express = require('express');
 const app = express();
 const appRouter = express.Router();
 
+const User = require('../models/User');
 const MuseumCollection = require('../models/MuseumCollection');
 const Accession = require('../models/Accession');
 
-appRouter.post('/add-collection/post', (function(req, res) {
-    const collection = new MuseumCollection(req.body);
-    collection.save()
+appRouter.post('/add-user/post', (function(req, res) {
+    const user = new User(req.body);
+    user.save()
 
-    .then(collection => {
-        res.json('Collection added.');
+    .then(user => {
+        res.json('User added.');
     })
 
     .catch(err => {
-        res.status(400).send('Unable to save collection.');
+        res.status(400).send('Unable to save User.');
     });
 }));
 
-appRouter.post('/collections', function(req, res) {
-    MuseumCollection.save(exampleCollection, function(error, doc) {
-        if (error) {
-            res.send(error);
-        } else {
-            res.send(doc);
-        }
-    })
-})
-
-appRouter.get('/collections', function(req, res) {
-    MuseumCollection.find({}, function(error, doc) {
+appRouter.get('/users', function(req, res) {
+    User.find({}, function(error, doc) {
         if (error) {
             res.send(error);
         } else {
@@ -38,16 +29,46 @@ appRouter.get('/collections', function(req, res) {
     });
 });
 
-appRouter.get('/add-accession/:id', function(req, res) {
+appRouter.get('/add-collection/:id', function(req, res) {
     const id = req.params.id;
+
+    User.findById(id, function(err, User) {
+        res.json(User);
+    });
+});
+
+appRouter.post('/update-collection/:id', function(req, res) {
+    User.findByIdAndUpdate(req.params.id, { $push: { "collections": {
+        "_id": req.params.id,
+        "collectionName": req.body.collectionName,
+        "accessionID": req.body.accessionID,
+    } } }, function(error, user) {
+        if (error) {
+            console.log(error);
+        } else {
+            user.save(function(err, users) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(users);
+                }
+            })
+        }
+    });
+});
+
+appRouter.get('/add-accession/:accessionID', function(req, res) {
+    const id = req.params.accessionID;
 
     MuseumCollection.findById(id, function(err, MuseumCollection) {
         res.json(MuseumCollection);
     });
 });
 
-appRouter.post('/update-accession/:id', function(req, res) {
-    MuseumCollection.findByIdAndUpdate(req.params.id, { $push: { "accessions": {
+appRouter.post('/update-accession/:accessionID', function(req, res) {
+    const id = req.params.accessionID;
+    
+    MuseumCollection.findByIdAndUpdate(id, { $push: { "accessions": {
         "acqNumber": req.body.acqNumber,
         "acqMethod": req.body.acqMethod,
         "acqName": req.body.acqName,
@@ -55,22 +76,30 @@ appRouter.post('/update-accession/:id', function(req, res) {
         "acqProv": req.body.acqProv,
         "acqDonor": req.body.acqDonor,
         "acqDescribe": req.body.acqDescribe
-    } } }, function(error, collection) {
+    } } }, function(error, MuseumCollection) {
         if (error) {
             console.log(error);
         } else {
-            collection.save(function(err, collections) {
+            MuseumCollection.save(function(err, MuseumCollection) {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(collections);
+                    console.log(MuseumCollection);
                 }
             })
         }
     });
 });
 
-appRouter.get('/view-accessions/:id', function(req, res) {
+appRouter.get('/view-collections/:id', function(req, res) {
+    const id = req.params.id;
+
+    User.findById(id, function(err, User) {
+        res.json(User);
+    });
+});
+
+appRouter.get('/collections/view-accessions/:id', function(req, res) {
     const id = req.params.id;
 
     MuseumCollection.findById(id, function(err, MuseumCollection) {
@@ -78,7 +107,7 @@ appRouter.get('/view-accessions/:id', function(req, res) {
     });
 });
 
-appRouter.route('/delete/:id').get(function(req, res) {
+appRouter.route('/collections/delete/:id').get(function(req, res) {
     MuseumCollection.findByIdAndRemove({ _id: req.params.id },
         function(err, user) {
             if (err) {
@@ -90,11 +119,11 @@ appRouter.route('/delete/:id').get(function(req, res) {
 });
 
 appRouter.get('/', function(req, res) {
-    MuseumCollection.find(function(err, collections) {
+    User.find(function(err, users) {
         if(err) {
             console.log(err);
         } else {
-            res.json(collections);
+            res.json(users);
         }
     });
 });

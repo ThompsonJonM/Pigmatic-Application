@@ -4,13 +4,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const User = require('./models/User');
 const MuseumCollection = require('./models/MuseumCollection');
 const Accession = require('./models/Accession');
 
 mongoose.Promise = Promise;
 
-// mongoose.connect('mongodb://localhost/pigmaticCollections');
-mongoose.connect('mongodb://thompsonjonm:1Qaz2WsX@ds049854.mlab.com:49854/pigmaticbuilddb')
+mongoose.connect('mongodb://localhost/pigmaticUsers');
+// mongoose.connect('mongodb://thompsonjonm:1Qaz2WsX@ds049854.mlab.com:49854/pigmaticbuilddb')
 const db = mongoose.connection;
 
 db.on('error', function(error) {
@@ -30,7 +31,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/collections', appRouter);
+app.use('/users', appRouter);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Helper from '../utilities/Helper';
 
 export default class CollectionForm extends React.Component {
@@ -19,6 +20,17 @@ export default class CollectionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount(){
+        axios.get('http://localhost:3000/users/add-collection/'+this.props.match.params.id)
+          .then(response => {
+            console.log(response);
+          })
+    
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
+
     handleChange(event) {
         const { name, value } = event.target;
 
@@ -35,8 +47,8 @@ export default class CollectionForm extends React.Component {
             accessionID: this.state.accessionID
         }
 
-        this.addHelper.sendCollectionData(collectionData);
-        this.props.history.push('/collection-submit');
+        this.addHelper.sendCollectionData(collectionData, this.props.match.params.id);
+        this.props.history.push('/users/collection-submit');
     }
 
     render() {

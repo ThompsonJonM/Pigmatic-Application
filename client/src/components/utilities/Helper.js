@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export default class Helper {
 
-    sendCollectionData(collectionData) {
-        axios.post('/collections/add-collection/post',
+    sendUserData(userData) {
+        axios.post('/users/add-user/post',
         {
-            collectionName: collectionData.collectionName,
-            accessionID: collectionData.accessionID
+            username: userData.username,
+            password: userData.password
         })
 
         .then(function(response) {
@@ -18,8 +18,22 @@ export default class Helper {
         });
     }
 
-    sendAccessionData(accessionData, id) {
-        axios.post('/collections/update-accession/'+id,
+    sendCollectionData(collectionData, id) {
+        axios.post('/users/update-collection/'+id,
+        {
+            collectionName: collectionData.collectionName,
+            accessionID: collectionData.accessionID
+        })
+
+        .then(res => this.setState({ collections: res.collectionData }))
+
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+
+    sendAccessionData(accessionData, accessionID) {
+        axios.post('/users/update-accession/'+accessionID,
         {
             acqNumber: accessionData.acqNumber,
             acqMethod: accessionData.acqMethod,
@@ -30,7 +44,7 @@ export default class Helper {
             acqDescribe: accessionData.acqDescribe
         })
 
-        .then(res => this.setState({ collections: res.accessionData }))
+        .then(res => this.setState({ accessions: res.accessionData }))
 
         .catch(function(error) {
             console.log(error);
@@ -38,7 +52,7 @@ export default class Helper {
     }
 
     deleteData(id) {
-        axios.get('/collections/delete/'+id)
+        axios.get('/users/collections/delete/'+id)
 
         .then(console.log('Collection Removed')).catch(err => console.log(err))
     }
