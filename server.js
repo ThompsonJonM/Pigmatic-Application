@@ -9,7 +9,8 @@ const Accession = require('./models/Accession');
 
 mongoose.Promise = Promise;
 
-mongoose.connect('mongodb://localhost/pigmaticCollections');
+// mongoose.connect('mongodb://localhost/pigmaticCollections');
+mongoose.connect('mongodb://thompsonjonm:1Qaz2WsX@ds049854.mlab.com:49854/pigmaticbuilddb')
 const db = mongoose.connection;
 
 db.on('error', function(error) {

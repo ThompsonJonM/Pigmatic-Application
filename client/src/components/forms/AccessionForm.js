@@ -69,7 +69,7 @@ export default class AccessionForm extends React.Component {
                         <div className='row formRow'>
                             <div className='col-6 form-group'>
                                 <label className='h5'> Acquisition Number </ label>
-                                <input className='form-control' value={this.state.acqNumber} onChange={this.handleInputChange} type='text' name='acqNumber' placeholder='Enter an acquisition number.' required />
+                                <input className='form-control' value={this.state.acqNumber} onChange={this.handleInputChange} type='text' name='acqNumber' placeholder='YYYY.AccessionID.ItemID' required />
                             </ div>
 
                             <div className='col-6 form-group'>

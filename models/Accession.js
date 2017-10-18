@@ -11,8 +11,8 @@ const AccessionSchema = new Schema({
         with a max length of 12 characters*/
         // match: [/([2][0][1-2][0-9])[.]([0-9]{2})[.]([0-9][0-9]?[0-9]?[a-z]?)/, 
         
-        // Regex error message:
-        //"Please enter a valid accession number (ex. 2017.22.02a)"],
+        // // Regex error message:
+        // "Please enter a valid accession number (ex. 2017.22.02a)"],
 
         // validate: [
         //     function(input) {
@@ -20,7 +20,7 @@ const AccessionSchema = new Schema({
         //     },
 
         //     // Validation error message:
-        //     //'Accession numbers should be less than or equal to twelve digits in length.'
+        //     'Accession numbers should be less than or equal to twelve digits in length.'
         // ]
     },
 
