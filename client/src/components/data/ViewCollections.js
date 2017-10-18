@@ -16,7 +16,7 @@ export default class ViewCollections extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/collections')
+        axios.get('/collections')
 
         .then(response => {
             console.log(response.data);

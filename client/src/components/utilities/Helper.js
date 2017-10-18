@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class Helper {
 
     sendCollectionData(collectionData) {
-        axios.post('http://localhost:3000/collections/add-collection/post',
+        axios.post('/collections/add-collection/post',
         {
             collectionName: collectionData.collectionName,
             accessionID: collectionData.accessionID
@@ -19,7 +19,7 @@ export default class Helper {
     }
 
     sendAccessionData(accessionData, id) {
-        axios.post('http://localhost:3000/collections/update-accession/'+id,
+        axios.post('/collections/update-accession/'+id,
         {
             acqNumber: accessionData.acqNumber,
             acqMethod: accessionData.acqMethod,
@@ -38,7 +38,7 @@ export default class Helper {
     }
 
     deleteData(id) {
-        axios.get('http://localhost:3000/collections/delete/'+id)
+        axios.get('/collections/delete/'+id)
 
         .then(console.log('Collection Removed')).catch(err => console.log(err))
     }

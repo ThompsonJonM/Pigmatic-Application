@@ -16,7 +16,7 @@ export default class ViewAccessions extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:3000/collections/view-accessions/'+this.props.match.params.id)
+        axios.get('/collections/view-accessions/'+this.props.match.params.id)
           .then(response => {
             console.log(response.data.accessions);
             this.setState({ accessions: response.data.accessions })
